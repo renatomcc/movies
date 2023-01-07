@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies Application</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <div class="header">
+      <button
+        type="button"
+        class="add-new-movie-button"
+        onclick="callAddNewMovieModal()"
+      >
+        Add New Movie
+      </button>
+      <div id="add-new-movie-wrap">
+        <div id="add-new-movie">
+          <button type="button" class="close-button" onclick="closeModal()">
+            X
+          </button>
+          <div class="input-box">
+            <label>Poster img link: </label>
+            <input type="text" id="image-input" />
+          </div>
+
+          <div class="input-box">
+            <label>Name: </label>
+            <input type="text" id="name-input" />
+          </div>
+
+          <div class="input-box">
+            <label>Genres: </label>
+            <input type="text" id="genre-input" />
+          </div>
+
+          <div class="input-box">
+            <label>Rate: </label>
+            <input type="text" id="rate-input" />
+          </div>
+
+          <div class="input-box">
+            <label>Overview: </label>
+            <input type="text" id="overview-input" />
+          </div>
+
+          <div class="input-box">
+            <label>Release date: </label>
+            <div class="release-date-box">
+              <input
+                type="text"
+                id="release-date-year-input"
+                placeholder="YYYY"
+              />
+              <input
+                type="text"
+                id="release-date-month-input"
+                placeholder="MM"
+              />
+              <input type="text" id="release-date-day-input" placeholder="DD" />
+            </div>
+          </div>
+
+          <button type="submit" onclick="addNewMovie()" class="add-button">Add</button>
+        </div>
+      </div>
+      <div class="search-filter">
+        <label>Search movie: </label>
+        <input type="text" id="search-movie" />
+      </div>
+      <div class="genre-filter">
+        <label> Filter by genre </label>
+        <select
+          onchange="filterMoviesByGenre(this.options[this.selectedIndex].value)"
+        >
+          <option>All</option>
+          <option>Action</option>
+          <option>Adventure</option>
+          <option>Animation</option>
+          <option>Comedy</option>
+          <option>Crime</option>
+          <option>Documentary</option>
+          <option>Drama</option>
+          <option>Fantasy</option>
+          <option>Horror</option>
+          <option>Music</option>
+          <option>Mystery</option>
+          <option>Romance</option>
+          <option>Science Fiction</option>
+          <option>Thriller</option>
+          <option>War</option>
+          <option>Western</option>
+        </select>
+      </div>
+    </div>
+    <div id="edit-modal"></div>
+    <div id="movies"></div>
+  </body>
+</html>

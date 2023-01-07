@@ -1,0 +1,336 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Trebuchet MS", Arial, sans-serif;
+}
+
+body {
+  background-color: #0a2647;
+}
+
+.add-new-movie-button {
+  height: 30px;
+  padding: 7px;
+  border-radius: 2px;
+  border: none;
+  background-color: rgba(255, 252, 61, 0.9);
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  transition: all linear 0.2s;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.add-new-movie-button:hover {
+  transform: translateY(-5px);
+}
+
+.search-filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  font-weight: 600;
+  gap: 5px;
+  color: white;
+}
+
+.search-filter input {
+  padding: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  font-style: italic;
+}
+
+.genre-filter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  flex-direction: column;
+  gap: 5px;
+  color: white;
+}
+.genre-filter select {
+  width: 180px;
+  height: 30px;
+}
+.genre-filter option {
+  font-size: 18px;
+}
+
+#movies {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.movie-card {
+  position: relative;
+  border: 1px solid black;
+  border-radius: 5px;
+  width: 300px;
+  height: 440px;
+  overflow: hidden;
+}
+
+.card-buttons {
+  position: absolute;
+  right: 0;
+  padding: 5px;
+}
+
+.card-buttons button {
+  padding: 5px;
+  border-radius: 2px;
+  border: none;
+  background-color: rgba(255, 252, 61, 0.9);
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.movie-title {
+  padding: 5px;
+  text-align: center;
+  font-size: 15px;
+  font-family: "Lucida Sans";
+}
+
+.movie-card img {
+  width: 100%;
+  height: 100%;
+}
+
+.movie-card:hover .movie-infos {
+  transform: translateY(-200px);
+  transition: all linear 0.3s;
+}
+
+.movie-infos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: top;
+  height: 200px;
+  transition: all linear 0.3s;
+  background-color: rgb(255, 249, 172);
+}
+
+.movie-overview {
+  overflow-x: hidden;
+  font-size: 12px;
+  text-align: center;
+  height: auto;
+  padding: 5px;
+}
+
+.movie-overview::-webkit-scrollbar {
+  width: 5px;
+}
+
+.movie-overview::-webkit-scrollbar-track {
+  background: rgba(255, 252, 61, 0.9);
+}
+
+.movie-overview::-webkit-scrollbar-thumb {
+  background: black;
+}
+
+.movie-overview::-webkit-scrollbar-thumb:hover {
+  background: black;
+}
+
+.movie-rate {
+  padding: 5px;
+  position: absolute;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(255, 249, 172);
+}
+
+ul {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  width: 100%;
+  justify-content: center;
+  padding: 10px;
+  gap: 10px;
+}
+
+.movie-genre {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: rgba(255, 252, 61, 0.9);
+  font-size: 13px;
+  border: 1px solid black;
+}
+
+#edit-modal {
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  overflow: hidden;
+  display: none;
+}
+
+.movie-edit {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 10px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+  background-color: rgb(255, 217, 46);
+  border: 1px solid rgba(0, 0, 0, 0.6);
+}
+
+.input-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+}
+
+.header {
+  display: flex;
+  width: 100vw;
+  justify-content: space-around;
+  padding: 20px;
+}
+
+.release-date-box {
+  display: flex;
+  gap: 5px;
+}
+
+.release-date-box input:first-child {
+  width: 50px;
+}
+.release-date-box input {
+  width: 25px;
+  text-align: center;
+}
+
+#add-new-movie-wrap {
+  display: none;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(5px);
+  z-index: 2;
+}
+
+#add-new-movie {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  padding: 20px;
+  background-color: rgb(255, 217, 46);
+  border: 1px solid black;
+  border-radius: 10px;
+  gap: 5px;
+  z-index: 3;
+}
+
+.close-button {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  position: absolute;
+  justify-content: center;
+  align-items: center;
+  right: 0;
+  top: 0;
+  margin: 10px;
+  padding: 5px;
+  border-radius: 2px;
+  border: none;
+  background-color: rgb(255, 251, 0);
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  font-weight: 550;
+}
+
+.add-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 10px;
+  margin-top: 10px;
+  border-radius: 2px;
+  border: none;
+  background-color: rgb(255, 251, 0);
+  box-shadow: 1px 2px 2px rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 550;
+}
+
+@media (max-width: 900px) {
+  #movies {
+    gap: 15px;
+  }
+  .movie-card {
+    width: 250px;
+    height: 500px;
+  }
+  .header {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+  .movie-rate {
+    font-size: 12px;
+    font-weight: 550;
+  }
+  .card-buttons {
+    right: -5px;
+    top: -5px;
+    font-size: 12px;
+  }
+  .movie-infos {
+    padding: 5px;
+    height: 150px;
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+  }
+  .movie-card img {
+    height: 70%;
+  }
+  ul {
+    padding: 5px;
+    gap: 2px;
+  }
+
+  .movie-card:hover .movie-infos {
+    transform: translateY(0px);
+  }
+}
