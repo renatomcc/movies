@@ -240,7 +240,7 @@ function submitEdit(movieID) {
         if (imageEditInput) movie.poster = imageEditInput;
         if (nameEditInput) movie.name = nameEditInput;
         if (genresEditInput != "") movie.genres = genresEditInput;
-        if (rateEditInput) movie.rate = rateEditInput;
+        if (rateEditInput) movie.rate = Number(rateEditInput);
         if (overviewEditInput) movie.overview = overviewEditInput;
         if (releaseYearDateEditInput) {
           movie.releaseDate =
@@ -298,7 +298,6 @@ const getMoviesData = () => {
             rate: data.vote_average,
           };
           movies.push(movie);
-          console.log(movie.id);
         }
       });
       moviesStorage = movies;
@@ -377,5 +376,6 @@ searchMovie.addEventListener("keyup", (e) => {
 function closeModal() {
   document.getElementById("add-new-movie-wrap").style.display = "none";
   document.body.style.overflow = "inherit";
+  document.body.style.overflowX = "hidden";
   editModal.style.display = "none";
 }
