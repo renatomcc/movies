@@ -110,6 +110,7 @@ function addNewMovie() {
     displayMovies();
     document.getElementById("add-new-movie-wrap").style.display = "none";
     document.body.style.overflow = "inherit";
+    document.body.style.overflowX = "hidden";
   }
 }
 
@@ -271,6 +272,7 @@ function submitEdit(movieID) {
     displayMovies();
     editModal.style.display = "none";
     document.body.style.overflow = "inherit";
+    document.body.style.overflowX = "hidden";
   }
 }
 
